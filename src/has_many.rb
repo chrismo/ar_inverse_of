@@ -1,3 +1,4 @@
+require 'active_support'
 require 'active_record'
 require 'minitest/autorun'
 
@@ -21,7 +22,7 @@ class Child < ActiveRecord::Base
 end
 
 describe 'inverse_of with has_many' do
-  before(:all) do
+  before do
     @child = Child.create!(:name => 'child')
     @parent = Parent.create!(:name => 'parent')
     @parent.children = [@child]
